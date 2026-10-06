@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sign up for the Wisconsin High School Climbing League: league fee, competition fees, State Finals, and how to register through your practice facility.">
+  <title>Registration | WHSCL</title>
+  <link rel="icon" href="whsclsquarelogo.png">
+  <link rel="stylesheet" href="styles.css">
+<script src="data-registration.js" defer></script>
+<script src="main.js" defer></script>
+<script src="registration.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="WHSCL home">
+      <img src="whscl_logo_dark.png" alt="Wisconsin High School Climbing League" width="1568" height="420">
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" data-site-nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="season.html">Season</a>
+      <a href="teams.html">Teams</a>
+      <a href="registration.html" aria-current="page">Registration</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow" data-reg-eyebrow>Join the league</p>
+      <h1 data-reg-heading>Registration</h1>
+      <p class="lead" data-reg-intro></p>
+    </div>
+  </section>
+
+  <section class="section" id="league-fee">
+    <div class="container">
+      <p class="eyebrow" data-leaguefee-eyebrow></p>
+      <div class="fee-headline">
+        <h2 data-leaguefee-heading></h2>
+        <span class="fee-amount" data-leaguefee-amount></span>
+      </div>
+      <p class="lead" data-leaguefee-detail></p>
+
+      <div data-registration-groups aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="fees">
+    <div class="container">
+      <p class="eyebrow" data-fees-eyebrow></p>
+      <h2 data-fees-heading></h2>
+      <p class="lead" data-fees-intro></p>
+      <dl class="deflist" data-fee-list></dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Before you register</p>
+        <h2>Find your team first.</h2>
+        <p class="lead">Registration is tied to your team&rsquo;s practice facility, so check the directory if you are not sure where your school practises. No team at your school yet? The league will help you start one.</p>
+      </div>
+      <div>
+        <div class="actions">
+          <a class="button" href="teams.html">Find your team</a>
+          <a class="button button--outline" href="resources.html#start-a-team">Start a team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container split">
+      <div>
+        <p class="eyebrow" data-reghelp-eyebrow></p>
+        <h2 data-reghelp-heading></h2>
+        <p class="lead" data-reghelp-intro></p>
+      </div>
+      <div>
+        <div class="actions" data-reghelp-buttons></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="whscl_logo_dark.png" alt="Wisconsin High School Climbing League" width="200" height="200">
+        <p>A statewide high school climbing community built around movement, challenge, competition, and connection. Climbing teams across Wisconsin practice weekly, compete monthly, and finish the season together at State Finals.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <ul class="footer-links">
+          <li><a href="season.html">Season &amp; competitions</a></li>
+          <li><a href="teams.html">Find your team</a></li>
+          <li><a href="registration.html">Registration &amp; fees</a></li>
+          <li><a href="resources.html#start-a-team">Start a team</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About the league</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Get in touch</p>
+        <ul class="footer-links">
+          <li>Lizzy Beach, League Director</li>
+          <li><a href="mailto:lizzy@adventurerock.com">lizzy@adventurerock.com</a></li>
+          <li><a href="tel:+12627906800,105">262-790-6800 x105</a></li>
+          <li><a href="https://www.instagram.com/whsclimbing/" rel="noopener">Instagram &#64;whsclimbing</a></li>
+          <li><a href="https://lp.constantcontactpages.com/sl/6DVQfe1/WHSCL" rel="noopener">Join the email list</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">Season information on this site follows the 2026&ndash;2027 WHSCL Binder. &copy; <span data-year>2026</span> Wisconsin High School Climbing League.</p>
+  </div>
+</footer>
+</body>
+</html>

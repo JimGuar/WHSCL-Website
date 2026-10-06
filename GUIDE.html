@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to update the WHSCL website</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .guide { max-width: 820px; }
+    .guide h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-top: 3.5rem; }
+    .guide h3 { margin-top: 2.25rem; }
+    .guide h4 { margin-top: 1.5rem; font-size: 1rem; }
+    .guide p, .guide li { max-width: 70ch; }
+    .guide code {
+      background: #eceeef; padding: .12rem .35rem; word-break: break-word;
+      font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9em;
+    }
+    .guide pre {
+      background: var(--ink); color: #f2f4f5; padding: 1rem 1.1rem;
+      overflow-x: auto; font-size: .85rem; line-height: 1.55; max-width: 100%;
+    }
+    .guide pre code { background: none; color: inherit; padding: 0; word-break: normal; white-space: pre; }
+    .guide ol li, .guide ul li { margin-bottom: .5rem; }
+    .warn { border-left: 5px solid var(--red); background: var(--soft); padding: 1rem 1.2rem; margin: 1.5rem 0; }
+    .warn p:last-child { margin-bottom: 0; }
+    .swatch { display: inline-block; width: 1rem; height: 1rem; vertical-align: -2px; border: 1px solid var(--line); margin-right: .35rem; }
+    .toc { display: grid; gap: .3rem; padding: 1.2rem; background: var(--soft); border: 1px solid var(--line); margin: 1.5rem 0 0; }
+    .toc a { font-weight: 800; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="WHSCL home">
+      <img src="whscl_logo_dark.png" alt="Wisconsin High School Climbing League" width="1568" height="420">
+    </a>
+    <a class="button button--small" href="index.html">Back to the site</a>
+  </div>
+</header>
+
+<main id="main" class="section">
+<div class="container guide">
+
+  <p class="eyebrow">For whoever maintains this site</p>
+  <h1 style="font-size:clamp(2.4rem,7vw,4rem)">Editing guide</h1>
+  <p class="lead">Everything here is plain HTML and CSS. Change a file, save it, refresh the browser. No build step, no server, nothing to install.</p>
+
+  <nav class="toc" aria-label="Contents">
+    <a href="#basics">1. Opening and editing</a>
+    <a href="#where">2. Which file holds what</a>
+    <a href="#buttons">3. Buttons</a>
+    <a href="#backgrounds">4. Section backgrounds and colour</a>
+    <a href="#images">5. Images and photos</a>
+    <a href="#sections">6. Adding and removing sections</a>
+    <a href="#text">7. Text, headings and lists</a>
+    <a href="#data">8. Teams, competitions and registration</a>
+    <a href="#broken">9. When something breaks</a>
+    <a href="#publish">10. Publishing</a>
+  </nav>
+
+  <h2 id="basics">1. Opening and editing</h2>
+  <p>Double-click <code>index.html</code> to view the site. The address bar shows <code>file:///</code> instead of <code>https://</code>, which is normal while you work on your own computer.</p>
+  <p>After saving a change, press <strong>Ctrl+Shift+R</strong> (Windows) or <strong>Cmd+Shift+R</strong> (Mac) in the browser. A plain refresh sometimes serves the old version from memory.</p>
+  <p>Use a real code editor rather than Notepad or TextEdit. <a href="https://code.visualstudio.com/" rel="noopener">VS Code</a> is free, colours the code so mistakes stand out, and closes your tags for you.</p>
+
+  <div class="warn">
+    <p><strong>Copy the folder before any big edit.</strong> Five seconds of insurance means no mistake is ever permanent.</p>
+  </div>
+
+  <h2 id="where">2. Which file holds what</h2>
+  <dl class="deflist">
+    <div class="defrow"><dt>The <code>.html</code> files</dt><dd class="defrow-amount">Page layout</dd>
+      <dd>One per page. Headings, paragraphs, buttons, sections. This is what you edit to change how a page is arranged.</dd></div>
+    <div class="defrow"><dt><code>styles.css</code></dt><dd class="defrow-amount">All styling</dd>
+      <dd>Colours, spacing, typography. The colour variables sit at the very top.</dd></div>
+    <div class="defrow"><dt>The <code>data-*.js</code> files</dt><dd class="defrow-amount">Content lists</dd>
+      <dd>Teams, competitions, registration, resources. One file per area &mdash; see section 8.</dd></div>
+    <div class="defrow"><dt>The other <code>.js</code> files</dt><dd class="defrow-amount">Machinery</dd>
+      <dd><code>main.js</code>, <code>teams.js</code>, <code>season.js</code>, <code>resources.js</code>. You should not need to touch these.</dd></div>
+  </dl>
+
+  <h2 id="buttons">3. Buttons</h2>
+  <p>Every button on the site is a link with a class on it. There is no separate button system to learn.</p>
+
+  <h4>The three styles</h4>
+  <pre><code>&lt;a class="button" href="teams.html"&gt;Find your team&lt;/a&gt;
+&lt;a class="button button--light" href="season.html"&gt;Explore the season&lt;/a&gt;
+&lt;a class="button button--outline" href="about.html"&gt;Learn more&lt;/a&gt;</code></pre>
+  <p><code>button</code> is solid red, <code>button--light</code> is white, <code>button--outline</code> is transparent with a border. Use the light or outline versions on dark backgrounds. Add <code>button--small</code> for a compact one.</p>
+
+  <h4>Adding a button</h4>
+  <p>Buttons live inside a <code>&lt;div class="actions"&gt;</code>, which handles spacing and wraps them onto separate lines on a phone. To add one, put another link inside that div:</p>
+  <pre><code>&lt;div class="actions"&gt;
+  &lt;a class="button" href="teams.html"&gt;Find your team&lt;/a&gt;
+  &lt;a class="button button--outline" href="registration.html"&gt;Register&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+  <p>If there is no <code>actions</code> div where you want the button, add the whole block.</p>
+
+  <h4>Removing a button</h4>
+  <p>Delete the entire <code>&lt;a ...&gt;...&lt;/a&gt;</code> line. If it was the only button, delete the surrounding <code>actions</code> div too.</p>
+
+  <h4>Where a button points</h4>
+  <ul>
+    <li>Another page here: <code>href="season.html"</code></li>
+    <li>A spot on a page: <code>href="season.html#hangouts"</code></li>
+    <li>An outside site: <code>href="https://example.com"</code> &mdash; add <code>rel="noopener"</code> too</li>
+    <li>An email: <code>href="mailto:lizzy@adventurerock.com"</code></li>
+    <li>A phone number: <code>href="tel:+12627906800"</code></li>
+    <li>A file in this folder: <code>href="WHSCL-Handbook.pdf"</code></li>
+  </ul>
+
+  <div class="warn">
+    <p><strong>Registration buttons are different.</strong> The buttons on the Registration page come from <code>data-registration.js</code>, and the Hangout sign-up button from <code>data-season.js</code>. Neither is written in the HTML. See section 8.</p>
+  </div>
+
+  <h2 id="backgrounds">4. Section backgrounds and colour</h2>
+  <p>The site alternates between light and dark bands. You do not pick colours &mdash; you pick one of three section types, which keeps everything consistent.</p>
+  <pre><code>&lt;section class="section"&gt;                &lt;!-- white --&gt;
+&lt;section class="section section--soft"&gt;  &lt;!-- light grey --&gt;
+&lt;section class="section section--dark"&gt;  &lt;!-- near-black --&gt;</code></pre>
+  <p>To change a band's colour, add or remove <code>section--soft</code> or <code>section--dark</code>. Nothing else needs changing: text inside a dark section turns white automatically.</p>
+
+  <h4>One thing to remember on dark sections</h4>
+  <p>Swap solid red buttons for <code>button--light</code> or <code>button--outline</code>, or they get lost against the dark background.</p>
+
+  <h4>Changing the actual colours</h4>
+  <p>The brand colours are defined once at the top of <code>styles.css</code>. Change them there and they update everywhere:</p>
+  <pre><code>:root {
+  --red: #c9202f;      /* buttons, accents, eyebrow labels */
+  --ink: #111315;      /* dark sections, body text */
+  --soft: #f4f5f6;     /* light grey sections */
+}</code></pre>
+  <p><span class="swatch" style="background:#c9202f"></span><code>--red</code> is the WHSCL red sampled from the logo. Changing that one line restyles every button and accent on the site at once.</p>
+
+  <h2 id="images">5. Images and photos</h2>
+
+  <h4>Adding an image to a page</h4>
+  <p>Drop the file into this folder, then reference it by exact file name:</p>
+  <pre><code>&lt;img src="state-finals-2026.jpg"
+     alt="Climber topping out at State Finals"
+     width="1600" height="1067" loading="lazy"&gt;</code></pre>
+  <ul>
+    <li><strong>alt</strong> describes the picture for screen readers and shows if the image fails to load. Always write one. Leave it empty (<code>alt=""</code>) only for pure decoration.</li>
+    <li><strong>width and height</strong> are the image's real pixel dimensions. They stop the page jumping about as images load.</li>
+    <li><strong>loading="lazy"</strong> means the browser only fetches it when it scrolls into view.</li>
+  </ul>
+
+  <div class="warn">
+    <p><strong>If you set width and height, never set only the CSS width.</strong> That is exactly what stretched the footer logo into a tall smear. The stylesheet now carries <code>img { height: auto; }</code> which prevents it &mdash; do not remove that line.</p>
+  </div>
+
+  <h4>File formats</h4>
+  <p>Use <strong>JPG</strong> for photographs and <strong>PNG</strong> for logos and anything needing transparency.</p>
+  <div class="warn">
+    <p><strong>HEIC will not work.</strong> iPhones save photos as <code>.HEIC</code>, which most browsers cannot display &mdash; the picture simply never appears. On a Mac, open it in Preview and choose File &rarr; Export, then pick JPEG. On Windows, open it in Photos and use Save as. To stop it at the source: on the iPhone, Settings &rarr; Camera &rarr; Formats &rarr; Most Compatible.</p>
+  </div>
+
+  <h4>Size them before adding</h4>
+  <p>A photo straight off a phone is often 4&ndash;8 MB, which makes the page crawl on mobile data. Resize to about 1600px on the long edge and save at roughly 80% quality. That usually lands under 400 KB with no visible difference.</p>
+
+  <h4>Coach photos</h4>
+  <p>These go in <code>data-teams.js</code>, not in the HTML. Put the file in this folder and write its exact name in the coach's <code>photo</code> field. Square images look best. If the file is missing, misspelled, or in a format the browser cannot read, the site falls back to the coach's initials in a circle rather than showing a broken image.</p>
+
+  <h4>A photo as a section background</h4>
+  <pre><code>&lt;section class="section section--dark"
+  style="background-image:linear-gradient(rgba(17,19,21,.75),rgba(17,19,21,.75)),url('team-photo.jpg');
+         background-size:cover; background-position:center;"&gt;</code></pre>
+  <p>The dark gradient layered over the photo is what keeps the text readable. Without it, white text on a bright photo becomes unreadable.</p>
+
+  <h2 id="sections">6. Adding and removing sections</h2>
+  <p>Every band down a page follows the same shape:</p>
+  <pre><code>&lt;section class="section"&gt;
+  &lt;div class="container"&gt;
+    &lt;p class="eyebrow"&gt;Small red label&lt;/p&gt;
+    &lt;h2&gt;The big heading&lt;/h2&gt;
+    &lt;p class="lead"&gt;An intro sentence in larger grey text.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+  <p>Copy that block, paste it where you want it, and change the words. <code>container</code> is what keeps content off the screen edges &mdash; always keep it.</p>
+
+  <h4>Two columns</h4>
+  <p><code>split</code> puts a heading beside supporting content and collapses to one column on a phone automatically:</p>
+  <pre><code>&lt;div class="container split"&gt;
+  &lt;div&gt; ...left... &lt;/div&gt;
+  &lt;div&gt; ...right... &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+  <h4>Cards</h4>
+  <pre><code>&lt;div class="cards"&gt;
+  &lt;article class="card card--accent"&gt;
+    &lt;h3&gt;Card heading&lt;/h3&gt;
+    &lt;p&gt;Card text.&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre>
+  <p><code>cards</code> makes the responsive grid, <code>card</code> is each box, and <code>card--accent</code> adds the red top edge.</p>
+
+  <h4>Removing a section</h4>
+  <p>Delete from <code>&lt;section</code> through its matching <code>&lt;/section&gt;</code>. In VS Code, click the small arrow in the margin beside the opening tag to collapse the whole block first &mdash; then you can see exactly what you are about to delete.</p>
+
+  <h2 id="text">7. Text, headings and lists</h2>
+  <p>Ordinary paragraphs are just <code>&lt;p&gt;text&lt;/p&gt;</code>. Add <code>class="lead"</code> for the larger grey intro style.</p>
+  <p>Headings run <code>h1</code> through <code>h4</code> and should not skip levels &mdash; an <code>h2</code> followed by an <code>h4</code> confuses screen readers. One <code>h1</code> per page.</p>
+  <p>Bold is <code>&lt;strong&gt;</code>, italic is <code>&lt;em&gt;</code>. A line break is <code>&lt;br&gt;</code>, though a new paragraph is usually better.</p>
+
+  <h4>Special characters</h4>
+  <ul>
+    <li><code>&amp;amp;</code> gives &amp; &mdash; always use this instead of a bare ampersand</li>
+    <li><code>&amp;rsquo;</code> gives an apostrophe &rsquo; and <code>&amp;mdash;</code> gives a long dash &mdash;</li>
+    <li><code>&amp;ndash;</code> gives the shorter dash &ndash; used in date ranges</li>
+  </ul>
+
+  <h4>The label above a heading</h4>
+  <p><code>&lt;p class="eyebrow"&gt;</code> is the small red uppercase label. It draws its own short line automatically &mdash; do not add one.</p>
+
+  <h2 id="data">8. Teams, competitions and registration</h2>
+  <p>These are lists rather than layout, so they live in the four <code>data-</code> files &mdash; one per area of the site. Each opens with instructions and a copy-paste template.</p>
+  <dl class="deflist">
+    <div class="defrow"><dt><code>data-teams.js</code></dt><dd class="defrow-amount">Teams page</dd>
+      <dd>Teams, coaches, gyms, practice days and times.</dd></div>
+    <div class="defrow"><dt><code>data-season.js</code></dt><dd class="defrow-amount">Season page</dd>
+      <dd>Competitions, Hangouts, important dates, divisions, competition day schedule, past results, and the Hangout sign-up link.</dd></div>
+    <div class="defrow"><dt><code>data-registration.js</code></dt><dd class="defrow-amount">Registration page</dd>
+      <dd>The whole page: heading text, the league fee headline, every sign-up button, the fee table, and the help box.</dd></div>
+    <div class="defrow"><dt><code>data-resources.js</code></dt><dd class="defrow-amount">Resources page</dd>
+      <dd>Documents and links.</dd></div>
+  </dl>
+  <p>The rules are the same in all three: text in <code>"double quotes"</code>, a comma at the end of every line, <code>""</code> for anything blank, and straight quotes only.</p>
+
+  <h4>Turning on a registration button</h4>
+  <p>Open <code>data-registration.js</code>, find <code>WHSCL_REGISTRATION_GROUPS</code>, and paste the sign-up address between the quotes:</p>
+  <pre><code>{ label: "Brookfield League Fee", url: "https://..." },</code></pre>
+  <p>That is the whole job. A button with an empty <code>url</code> shows greyed out reading &ldquo;link coming,&rdquo; so an unfinished link never looks clickable.</p>
+
+  <h4>Adding a sign-up location</h4>
+  <p>Copy a button line inside the group it belongs to and change the label. To add a whole new box on the page &mdash; a new region, say &mdash; copy one of the group blocks and change its heading, paragraph and buttons:</p>
+  <pre><code>{
+  heading: "Teams practising at Greater Heights",
+  intro: "One sentence explaining who this is for.",
+  buttons: [
+    { label: "Madison League Fee", url: "" },
+  ],
+},</code></pre>
+  <p>Groups appear on the page in the order they are written. Changing a fee is in the same file, under <code>WHSCL_FEES</code>.</p>
+
+  <h4>The Hangout sign-up button</h4>
+  <p>That one is on the Season page, so it lives in <code>data-season.js</code> beside the Hangout dates. Paste the Adventure Rock booking address into <code>WHSCL_HANGOUT_LINK</code>. One button covers every Hangout. Leave it empty and it stays greyed out.</p>
+
+  <h4>Instagram</h4>
+  <p>Either form works &mdash; <code>"@lyceumma"</code> and <code>"https://www.instagram.com/lyceumma/"</code> both produce a working link.</p>
+
+  <h2 id="broken">9. When something breaks</h2>
+  <p>Almost every problem is one of three things.</p>
+  <ol>
+    <li><strong>A section vanished, or a grey &ldquo;could not load&rdquo; box appeared.</strong> A missing comma or quote in a <code>data-</code> file. Undo (Ctrl+Z / Cmd+Z), save, refresh.</li>
+    <li><strong>The layout collapsed below the point you edited.</strong> An unclosed tag. Check every <code>&lt;div&gt;</code> and <code>&lt;section&gt;</code> you added has a matching closing tag.</li>
+    <li><strong>An image shows as a broken icon.</strong> The file name does not match exactly &mdash; capitalisation counts &mdash; or it is a HEIC.</li>
+  </ol>
+  <p>To see the actual error, press <strong>F12</strong> (or right-click &rarr; Inspect) and open the <strong>Console</strong> tab. It names the file and the line number.</p>
+
+  <h4>Check your work on a phone</h4>
+  <p>Press F12, then click the small phone icon at the top of the panel. Pick a device or set the width to 390px. The whole site is designed mobile-first, so if it works at 390px it works anywhere. Watch for anything that scrolls sideways &mdash; that always means something is too wide.</p>
+
+  <h2 id="publish">10. Publishing</h2>
+  <p>The site is a plain folder, so nearly any host works.</p>
+  <ul>
+    <li><strong>Netlify Drop</strong> (<a href="https://app.netlify.com/drop" rel="noopener">app.netlify.com/drop</a>) &mdash; drag the folder onto the page and it is live in seconds. Drag it again to update.</li>
+    <li><strong>GitHub Pages</strong> &mdash; more setup, but keeps a history of every version and lets several people help.</li>
+  </ul>
+  <p>Rename <code>_gitignore</code> to <code>.gitignore</code> if you use GitHub. If you use Netlify Drop, ignore it.</p>
+  <p>Delete this guide file before publishing if you would rather it not be reachable, though nobody will find it unless you link to it.</p>
+
+  <div class="actions">
+    <a class="button" href="index.html">Back to the site</a>
+  </div>
+
+</div>
+</main>
+
+</body>
+</html>
