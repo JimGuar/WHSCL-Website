@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search Wisconsin High School Climbing League teams by school, coach, conference, region, or practice facility.">
+  <title>Teams | WHSCL</title>
+  <link rel="icon" href="whsclsquarelogo.png">
+  <link rel="stylesheet" href="styles.css">
+<script src="data-teams.js" defer></script>
+<script src="main.js" defer></script>
+<script src="teams.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="WHSCL home">
+      <img src="whscl_logo_dark.png" alt="Wisconsin High School Climbing League" width="1568" height="420">
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" data-site-nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="season.html">Season</a>
+      <a href="teams.html" aria-current="page">Teams</a>
+      <a href="registration.html">Registration</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Find your team</p>
+      <h1>Teams</h1>
+      <p class="lead">Search the directory by school, coach, conference, or practice facility. Open a team to see practice details and coach contacts, or jump to the <a href="#practices">practice schedule by gym</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <form class="filter-bar" data-team-filters aria-label="Filter teams">
+        <div class="field">
+          <label for="team-search">Search school or coach</label>
+          <input id="team-search" type="search" placeholder="Try &ldquo;Verona&rdquo; or &ldquo;Appleton&rdquo;" data-team-search autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="team-conference">Conference</label>
+          <select id="team-conference" data-team-conference>
+            <option value="">All conferences</option>
+            <option value="A">Conference A</option>
+            <option value="B">Conference B</option>
+          </select>
+        </div>
+        <div class="field" data-region-field>
+          <label for="team-region">Region</label>
+          <select id="team-region" data-team-region>
+            <option value="">All regions</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="team-facility">Practice facility</label>
+          <select id="team-facility" data-team-facility>
+            <option value="">All facilities</option>
+          </select>
+        </div>
+      </form>
+      <p class="results-count" data-team-count role="status"></p>
+      <div class="cards" data-team-grid></div>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="practices">
+    <div class="container">
+      <p class="eyebrow">Practice schedule</p>
+      <h2>Practices by gym.</h2>
+      <p class="lead">Pick a facility to see which teams practise there and when. Practice days and times for the season are confirmed gym by gym, so some may still read &ldquo;to be confirmed.&rdquo;</p>
+      <div class="chip-row" data-practice-tabs role="group" aria-label="Choose a practice facility"></div>
+      <div class="card" data-practice-panel aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="start-a-team">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">No team at your school?</p>
+        <h2>Start one.</h2>
+        <p class="lead">A team needs three things: permission from the school, at least one coach, and at least one student leader. The league walks you through the rest, including a free climbing day at your local gym to recruit.</p>
+      </div>
+      <div>
+        <div class="actions">
+          <a class="button" href="resources.html#start-a-team">Six-step startup guide</a>
+          <a class="button button--outline" href="mailto:lizzy@adventurerock.com">Email the League Director</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="sheet" data-team-dialog aria-labelledby="team-dialog-title">
+    <div class="sheet-head">
+      <h2 id="team-dialog-title" data-dialog-title>Team</h2>
+      <button type="button" class="sheet-close" data-dialog-close aria-label="Close team details">Close</button>
+    </div>
+    <div class="sheet-body" data-dialog-body></div>
+  </dialog>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="whscl_logo_light.png" alt="Wisconsin High School Climbing League" width="1568" height="420">
+        <p>A statewide high school climbing community built around movement, challenge, competition, and connection. Climbing teams across Wisconsin practice weekly, compete monthly, and finish the season together at State Finals.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <ul class="footer-links">
+          <li><a href="season.html">Season &amp; competitions</a></li>
+          <li><a href="teams.html">Find your team</a></li>
+          <li><a href="registration.html">Registration &amp; fees</a></li>
+          <li><a href="resources.html#start-a-team">Start a team</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About the league</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Get in touch</p>
+        <ul class="footer-links">
+          <li>Lizzy Beach, League Director</li>
+          <li><a href="mailto:lizzy@adventurerock.com">lizzy@adventurerock.com</a></li>
+          <li><a href="tel:+12627906800,105">262-790-6800 x105</a></li>
+          <li><a href="https://www.instagram.com/whsclimbing/" rel="noopener">Instagram &#64;whsclimbing</a></li>
+          <li><a href="https://lp.constantcontactpages.com/sl/6DVQfe1/WHSCL" rel="noopener">Join the email list</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">Season information on this site follows the 2026&ndash;2027 WHSCL Binder. &copy; <span data-year>2026</span> Wisconsin High School Climbing League.</p>
+  </div>
+</footer>
+</body>
+</html>

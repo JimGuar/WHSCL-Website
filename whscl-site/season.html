@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="2026–2027 WHSCL competition schedule, registration windows, divisions, High School Hangouts, fees, and past season results.">
+  <title>Season | WHSCL</title>
+  <link rel="icon" href="whsclsquarelogo.png">
+  <link rel="stylesheet" href="styles.css">
+<script src="data-season.js" defer></script>
+<script src="main.js" defer></script>
+<script src="season.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="WHSCL home">
+      <img src="whscl_logo_dark.png" alt="Wisconsin High School Climbing League" width="1568" height="420">
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" data-site-nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="season.html" aria-current="page">Season</a>
+      <a href="teams.html">Teams</a>
+      <a href="registration.html">Registration</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow" data-season-name>2026&ndash;2027</p>
+      <h1>Season</h1>
+      <p class="lead">Competition dates, registration windows, divisions, High School Hangouts, fees, and results. Registration for every competition is handled by the host facility.</p>
+      <div class="actions">
+        <a class="button" href="#competitions">Competitions</a>
+        <a class="button button--outline" href="#hangouts">Hangouts</a>
+        <a class="button button--outline" href="#divisions">Divisions</a>
+        <a class="button button--outline" href="#results">Past results</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="competitions">
+    <div class="container">
+      <p class="eyebrow">Competition schedule</p>
+      <h2>Seven competitions and State Finals.</h2>
+      <p class="lead" data-registration-note></p>
+      <div class="cards" data-competition-grid aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="hangouts">
+    <div class="container">
+      <p class="eyebrow">Community events</p>
+      <h2>High School Hangouts</h2>
+      <p class="lead" data-hangout-note></p>
+      <div class="actions" data-hangout-signup></div>
+      <div class="cards" data-hangout-grid></div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="divisions">
+    <div class="container">
+      <p class="eyebrow">Competition divisions</p>
+      <h2>Four levels, eight categories.</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Top rope</h3>
+          <dl class="deflist" data-division-toprope></dl>
+        </div>
+        <div>
+          <h3>Bouldering</h3>
+          <dl class="deflist" data-division-boulder></dl>
+        </div>
+      </div>
+      <p class="lead" data-division-note style="margin-top:2rem"></p>
+    </div>
+  </section>
+
+  <section class="section" id="comp-day">
+    <div class="container">
+      <p class="eyebrow">Competition day</p>
+      <h2>How a comp runs.</h2>
+      <p class="lead">Each competition runs two sessions. Conferences alternate between the morning and afternoon session through the season, so check which session your conference is in.</p>
+      <div class="grid-2">
+        <div>
+          <h3>Morning session</h3>
+          <dl class="deflist" data-compday-morning></dl>
+        </div>
+        <div>
+          <h3>Afternoon session</h3>
+          <dl class="deflist" data-compday-afternoon></dl>
+        </div>
+      </div>
+      <p class="resource-status" data-compday-note style="margin-top:1.25rem"></p>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="key-dates">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Important dates</p>
+        <h2>Closures and deadlines</h2>
+        <p class="lead">Gym closures, contest deadlines, and the days Adventure Rock Milwaukee is off limits for State Finals routesetting.</p>
+        <div class="actions">
+          <a class="button" href="registration.html">Registration &amp; fees</a>
+        </div>
+      </div>
+      <div>
+        <dl class="deflist" data-keydates></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="results">
+    <div class="container">
+      <p class="eyebrow">Archive</p>
+      <h2 data-archive-heading>Past results</h2>
+      <p class="lead" data-archive-note></p>
+      <div data-archive-list></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="whscl_logo_dark.png" alt="Wisconsin High School Climbing League" width="200" height="200">
+        <p>A statewide high school climbing community built around movement, challenge, competition, and connection. Climbing teams across Wisconsin practice weekly, compete monthly, and finish the season together at State Finals.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <ul class="footer-links">
+          <li><a href="season.html">Season &amp; competitions</a></li>
+          <li><a href="teams.html">Find your team</a></li>
+          <li><a href="registration.html">Registration &amp; fees</a></li>
+          <li><a href="resources.html#start-a-team">Start a team</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About the league</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Get in touch</p>
+        <ul class="footer-links">
+          <li>Lizzy Beach, League Director</li>
+          <li><a href="mailto:lizzy@adventurerock.com">lizzy@adventurerock.com</a></li>
+          <li><a href="tel:+12627906800,105">262-790-6800 x105</a></li>
+          <li><a href="https://www.instagram.com/whsclimbing/" rel="noopener">Instagram &#64;whsclimbing</a></li>
+          <li><a href="https://lp.constantcontactpages.com/sl/6DVQfe1/WHSCL" rel="noopener">Join the email list</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">Season information on this site follows the 2026&ndash;2027 WHSCL Binder. &copy; <span data-year>2026</span> Wisconsin High School Climbing League.</p>
+  </div>
+</footer>
+</body>
+</html>
